@@ -81,6 +81,16 @@ export default {
           title: 'Inspire',
           to: '/inspire',
         },
+        {
+          icon: 'mdi-file-document',
+          title: 'Documents',
+          to: '/docs'
+        },
+        {
+          icon: 'mdi-account',
+          title: 'Users',
+          to: '/users'
+        }
       ],
       miniVariant: false,
       right: true,
