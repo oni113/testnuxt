@@ -90,6 +90,11 @@ export default {
           icon: 'mdi-account',
           title: 'Users',
           to: '/users'
+        },
+        {
+          icon: 'mdi-api',
+          title: 'Data',
+          to: '/data'
         }
       ],
       miniVariant: false,
