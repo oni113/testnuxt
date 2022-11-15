@@ -95,6 +95,11 @@ export default {
           icon: 'mdi-api',
           title: 'Data',
           to: '/data'
+        },
+        {
+          icon: 'mdi-login',
+          title: 'Login',
+          to: '/login'
         }
       ],
       miniVariant: false,

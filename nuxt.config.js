@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+import bodyParser from 'body-parser'
+import session from 'express-session'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -36,6 +38,13 @@ export default {
     '@nuxtjs/vuetify',
   ],
   serverMiddleware : [
+    bodyParser.json(),
+    session({
+      secret: 'super-secret-key',
+      resave: false,
+      saveUninitialized: false,
+      cookie: { maxAge: 30000 }
+    }),
     '~api/index.js'
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -66,7 +75,7 @@ export default {
           success: colors.green.accent3,
         },
       },
-    },
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
