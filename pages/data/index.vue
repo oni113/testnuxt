@@ -1,5 +1,6 @@
 <template>
     <div>
+        <NuxtLogo/>
         <div>DATA api 요청 페이지</div>
         <div>DATA 결과 (server) : {{apiValue}}</div>
         <div>DATA 결과 (client) : {{localValue}}</div>
@@ -9,7 +10,12 @@
     </div>
 </template>
 <script>
+import NuxtLogo from '@/components/NuxtLogo.vue';
+
 export default {
+    components: {
+        NuxtLogo
+    },
     setup() {
         
     },
@@ -22,9 +28,9 @@ export default {
     methods: {
         async getData() {
             const rs = await this.$axios.get('/api/');
-            console.log('response : ', rs);
             this.apiValue = rs.data;
-            this.localValue = this.$moment().toLocaleString();
+            const whatTime = this.$moment().toLocaleString();
+            this.localValue = `What time? : ${whatTime}`;
         }
     }
 }

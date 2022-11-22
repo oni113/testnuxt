@@ -5,7 +5,9 @@ const app = express();
 
 app.get('/', (req, res) => {
     // console.log('GET request : /api/');
-    res.send('What time ? : ' + moment().toLocaleString());
+    const whatTime = moment().toLocaleString();
+
+    res.send(`What time? : ${whatTime}`);
 });
 
 const loginRouter = require('./login/login.js');
