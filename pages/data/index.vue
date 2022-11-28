@@ -7,6 +7,9 @@
         <div>
             <v-btn color="primary" @click="getData"> DATA 요청 </v-btn>
         </div>
+        <div>
+            <v-btn color="primary" @click="getProducts"> write products to console</v-btn>
+        </div>
     </div>
 </template>
 <script>
@@ -31,6 +34,10 @@ export default {
             this.apiValue = rs.data;
             const whatTime = this.$moment().toLocaleString();
             this.localValue = `What time? : ${whatTime}`;
+        },
+        async getProducts() {
+            const rs = await this.$axios.get('http://localhost:3000/products');
+            console.log(rs);
         }
     }
 }
