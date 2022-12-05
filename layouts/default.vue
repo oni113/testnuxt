@@ -100,6 +100,11 @@ export default {
           icon: 'mdi-login',
           title: 'Login',
           to: '/login'
+        },
+        {
+          icon: 'mdi-playlist-edit',
+          title: 'product',
+          to: '/product'
         }
       ],
       miniVariant: false,
