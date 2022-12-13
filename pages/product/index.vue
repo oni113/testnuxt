@@ -5,7 +5,7 @@
                 <input type="text"/>
             </div>
             <ul>
-                <li v-for="product in products" :key="product.id" class="item flex">
+                <li v-for="product in products" :key="product.id" class="item flex" @click="moveToProduct(product.id)">
                     <img :src="product.imageUrl" :alt="product.name" class="product-image"/>
                     <p>{{ product.name }}</p>
                     <span>{{ product.price }}</span>
@@ -32,8 +32,13 @@ export default {
             products
         }
     },
-    head : {
+    head: {
         title : 'PRODUCT'
+    },
+    methods: {
+      moveToProduct(id) {
+        this.$router.push(`/product/${id}`);
+      }
     }
 }
 </script>
