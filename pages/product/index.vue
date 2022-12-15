@@ -51,7 +51,7 @@ export default {
 .item {
   display: inline-block;
   width: 400px;
-  height: 300px;
+  height: 330px;
   text-align: center;
   margin: 0 0.5rem;
   cursor: pointer;
