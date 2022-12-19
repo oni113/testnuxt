@@ -124,3 +124,7 @@ a {
   font-weight: 700;
   color: #00c58e;
 }
+
+input {
+  border-style: solid !important;
+}

@@ -47,7 +47,7 @@ export default {
       moveToProduct(id) {
         this.$router.push(`/product/${id}`);
       },
-      async searchProducts(keyord) {
+      async searchProducts() {
         const response = await fetchProductByKeyword(this.searchKeyword);
         this.products = response.data.map(product => ({
             id: product.id,

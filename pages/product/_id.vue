@@ -11,7 +11,7 @@
       <div class="side-panel">
         <p class="name">{{ product.name }}</p>
         <p class="price">{{ product.price }}</p>
-        <button type="button" @click="addToCart">Add to Cart</button>
+        <button type="button" class="btn" @click="addToCart">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -54,5 +54,9 @@ export default {
   width: 220px;
   text-align: center;
   padding: 0 1rem;
+}
+
+.btn {
+  border-style: solid;
 }
 </style>
