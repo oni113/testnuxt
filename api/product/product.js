@@ -8,6 +8,14 @@ function fetchProductById(id) {
     return axiosInstance.get(`/products/${id}`);
 }
 
+function fetchProductByKeyword(keyword) {
+    return axiosInstance.get(`/products`, {
+        params: {
+            name_like: keyword
+        }
+    })
+}
+
 export {
-    fetchProductById
+    fetchProductById, fetchProductByKeyword
 }
