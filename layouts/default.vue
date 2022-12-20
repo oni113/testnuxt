@@ -105,6 +105,11 @@ export default {
           icon: 'mdi-playlist-edit',
           title: 'product',
           to: '/product'
+        },
+        {
+          icon: 'mdi-cart',
+          title: 'cart',
+          to: '/cart'
         }
       ],
       miniVariant: false,

@@ -7,8 +7,14 @@
                     <img :src="product.imageUrl" :alt="product.name" class="product-image"/>
                     <p>{{ product.name }}</p>
                     <span>{{ product.price }}</span>
+                    <div>
+                      <button type="button" class="add-btn" @click="addToCart(product.id)">Add to Cart</button>
+                    </div>
                 </li>
             </ul>
+            <div class="cart-wrapper">
+              <button class="btn" @click="moveToCart">Move to Cart</button>
+            </div>
         </main>
     </div>
 </template>
@@ -55,6 +61,12 @@ export default {
             price: product.price,
             imageUrl: `${product.imageUrl}?random=${Math.random()}` 
         }));
+      },
+      addToCart(id) {
+        this.$router.push('/cart');
+      },
+      moveToCart() {
+        this.$router.push('/cart');
       }
     }
 }
@@ -68,7 +80,7 @@ export default {
 .item {
   display: inline-block;
   width: 400px;
-  height: 330px;
+  height: 345px;
   text-align: center;
   margin: 0 0.5rem;
   cursor: pointer;
@@ -91,5 +103,10 @@ export default {
   height: 40px;
   font-size: 1rem;
   font-weight: 500;
+  border-style: solid !important;
+}
+
+.add-btn {
+  border-style: solid;
 }
 </style>
