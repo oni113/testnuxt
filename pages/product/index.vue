@@ -8,7 +8,7 @@
                     <p>{{ product.name }}</p>
                     <span>{{ product.price }}</span>
                     <div>
-                      <button type="button" class="add-btn" @click="addToCart(product.id)">Add to Cart</button>
+                      <button type="button" class="add-btn" @click="addToCart(product)">Add to Cart</button>
                     </div>
                 </li>
             </ul>
@@ -62,7 +62,8 @@ export default {
             imageUrl: `${product.imageUrl}?random=${Math.random()}` 
         }));
       },
-      addToCart(id) {
+      addToCart(item) {
+        this.$store.commit('addCartItem', item);
         this.$router.push('/cart');
       },
       moveToCart() {
