@@ -16,6 +16,17 @@ function fetchProductByKeyword(keyword) {
     })
 }
 
+function fetchCartItem() {
+    return axiosInstance.get('/carts');
+}
+
+function createCartItem(cartItem) {
+    return axiosInstance.post('/carts', cartItem);
+}
+
 export {
-    fetchProductById, fetchProductByKeyword
+    fetchProductById, 
+    fetchProductByKeyword,
+    fetchCartItem,
+    createCartItem
 }

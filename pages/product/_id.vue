@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { fetchProductById } from '@/api/product/product';
+import { fetchProductById, createCartItem } from '@/api/product/product';
 
 export default {
     async asyncData({ params }) {
@@ -30,9 +30,14 @@ export default {
       return { product }
     },
     methods: {
-      addToCart() {
-        this.$store.commit('addCartItem', this.product);
-        this.$router.push('/cart');
+      async addToCart() {
+        const response = await createCartItem(this.product);
+        if (response.status === 201) {
+          this.$store.commit('addCartItem', this.product);
+          this.$router.push('/cart');
+        } else {
+          console.log('error!!')
+        }
       }
     }
 }

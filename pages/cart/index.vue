@@ -3,7 +3,7 @@
     <h1 class="list-title">Cart</h1>
     <div class="list-wrapper">
       <ul>
-        <li v-for="cartItem in $store.state.cartItems" :key="cartItem.id" class="list-item" >
+        <li v-for="cartItem in cartItems" :key="cartItem.id" class="list-item" >
             <img :src="cartItem.imageUrl" :alt="cartItem.name" class="thumbnail"/>
             <div class="description">
               <p>{{ cartItem.name }}</p>
@@ -20,7 +20,15 @@
 </template>
 
 <script>
+import { fetchCartItem } from '@/api/product/product';
+
 export default {
+  async asyncData() {
+    const response = await fetchCartItem();
+    return {
+      cartItems : response.data
+    }
+  },
   methods: {
     moveToProduct() {
       this.$router.push('/product');

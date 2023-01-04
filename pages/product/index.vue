@@ -22,7 +22,7 @@
 <script>
 import axios from 'axios'
 import SearchInput from '@/components/SearchInput.vue';
-import { fetchProductByKeyword } from '@/api/product/product';
+import { fetchProductByKeyword, createCartItem } from '@/api/product/product';
 
 export default {
     components : {
@@ -62,9 +62,14 @@ export default {
             imageUrl: `${product.imageUrl}?random=${Math.random()}` 
         }));
       },
-      addToCart(item) {
-        this.$store.commit('addCartItem', item);
-        this.$router.push('/cart');
+      async addToCart(item) {
+        const response = await createCartItem(item);
+        if (response.status === 201) {
+          this.$store.commit('addCartItem', item);
+          this.$router.push('/cart');
+        } else {
+          console.log('error!!')
+        }
       },
       moveToCart() {
         this.$router.push('/cart');
