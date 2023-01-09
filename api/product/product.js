@@ -16,7 +16,7 @@ function fetchProductByKeyword(keyword) {
     })
 }
 
-function fetchCartItem() {
+function fetchCartItems() {
     return axiosInstance.get('/carts');
 }
 
@@ -27,6 +27,6 @@ function createCartItem(cartItem) {
 export {
     fetchProductById, 
     fetchProductByKeyword,
-    fetchCartItem,
+    fetchCartItems,
     createCartItem
 }

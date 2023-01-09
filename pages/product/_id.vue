@@ -36,7 +36,7 @@ export default {
           this.$store.commit('addCartItem', this.product);
           this.$router.push('/cart');
         } else {
-          console.log('error!!')
+          // console.log('error!!')
         }
       }
     }
