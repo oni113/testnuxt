@@ -20,7 +20,9 @@ export const actions = {
         const response = await fetchCartItems();
         commit('setCartItems', response.data);
     },
+    /*
     async nuxtServerInit(storeContext, nuxtContext) {
         await storeContext.dispatch(FETCH_CART_ITEMS);
     }
+    */
 }
